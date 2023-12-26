@@ -51,7 +51,7 @@ def handle_message(event):
     line_bot_api.reply_message(
             event.reply_token,
             # TextSendMessage(text="你上傳了圖檔，我將為你分析其中的文字!"))
-            TextSendMessage(text=event.message.originalContentUrl))
+            TextSendMessage(text=dir(event.message))
     
     if event.message.type == "image":
         line_bot_api.reply_message(
