@@ -53,6 +53,12 @@ def handle_message(event):
             TextSendMessage(text="好的，我乖乖閉嘴 > <，如果想要我繼續說話，請跟我說 「說話」 > <"))
         return
 
+    if event.message.text == "#全素":
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="好的，我知道你是呷全素的善知識"))
+        return
+
     if working_status:
         chatgpt.add_msg(f"HUMAN:{event.message.text}?\n")
         reply_msg = chatgpt.get_response().replace("AI:", "", 1)
