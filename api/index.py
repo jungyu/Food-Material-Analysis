@@ -36,11 +36,11 @@ def callback():
 @line_handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     global working_status
-
+    '''
     line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=event.message.type))
-
+    '''
     if event.message.type == "image":
         line_bot_api.reply_message(
             event.reply_token,
