@@ -48,10 +48,16 @@ def handle_message(event):
                 fd.write(message_content.content)             # 以二進位的方式寫入檔案
             reply = '圖片儲存完成！'  
     '''
+    line_bot_api.reply_message(
+            event.reply_token,
+            # TextSendMessage(text="你上傳了圖檔，我將為你分析其中的文字!"))
+            TextSendMessage(text=event.message.originalContentUrl))
+    
     if event.message.type == "image":
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text="你上傳了圖檔，我將為你分析其中的文字!"))
+            # TextSendMessage(text="你上傳了圖檔，我將為你分析其中的文字!"))
+            TextSendMessage(text=event.message.originalContentUrl))
         return
     
     # if event.message.type != "text":
