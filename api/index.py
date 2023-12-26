@@ -40,6 +40,13 @@ def handle_message(event):
     line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=event.message.type))
+    if type == 'image':
+            msgID = json_data['events'][0]['message']['id']  # 取得訊息 id
+            message_content = line_bot_api.get_message_content(msgID)  # 根據訊息 ID 取得訊息內容
+            # 在同樣的資料夾中建立以訊息 ID 為檔名的 .jpg 檔案
+            with open(f'{msgID}.jpg', 'wb') as fd:
+                fd.write(message_content.content)             # 以二進位的方式寫入檔案
+            reply = '圖片儲存完成！'  
     '''
     if event.message.type == "image":
         line_bot_api.reply_message(
