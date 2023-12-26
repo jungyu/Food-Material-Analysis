@@ -36,6 +36,13 @@ def callback():
 @line_handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     global working_status
+
+    if event.message.type == "image":
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="你上傳了圖檔，我將為你分析其中的文字!"))
+        return
+    
     if event.message.type != "text":
         return
 
