@@ -43,8 +43,8 @@ def handle_message(event):
             TextSendMessage(text="你上傳了圖檔，我將為你分析其中的文字!"))
         return
     
-    if event.message.type != "text":
-        return
+    # if event.message.type != "text":
+    #    return
 
     if event.message.text == "說話":
         working_status = True
