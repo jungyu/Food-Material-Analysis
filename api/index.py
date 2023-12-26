@@ -37,6 +37,10 @@ def callback():
 def handle_message(event):
     global working_status
 
+    line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="測試1"))
+
     if event.message.type == "image":
         line_bot_api.reply_message(
             event.reply_token,
