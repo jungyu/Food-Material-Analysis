@@ -39,7 +39,7 @@ def handle_message(event):
 
     line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text="測試1"))
+            TextSendMessage(text=event.message.type))
 
     if event.message.type == "image":
         line_bot_api.reply_message(
