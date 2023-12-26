@@ -37,9 +37,7 @@ def callback():
 def handle_message(event):
     global working_status
 
-    line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=event.message.type))
+    
 
     if event.message.type == "image":
         line_bot_api.reply_message(
@@ -55,6 +53,9 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="我可以說話囉，歡迎來跟我互動 ^_^ "))
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=event.message.type))
         return
 
     if event.message.text == "閉嘴":
